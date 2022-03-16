@@ -4,6 +4,8 @@ from typing import Union, List
 
 
 class YamolDownloader:
+    "The YamolDownloader object downloads the option tags from the Yamol based on a given id"
+
     def __init__(self, id: int) -> None:
         self.id = id
 
