@@ -1,6 +1,6 @@
+from typing import Union, List 
 from dataclasses import dataclass
 from ..downloader import YamolDownloader
-from typing import Union, List, Generator
 
 
 @dataclass
@@ -24,6 +24,6 @@ class YamolScraper:
         """
         return tag.find("span", class_="itemcontent").text
 
-    def extract_data(self) -> Generator[str]:
+    def extract_data(self):
         option_tags = self.download_option_tags()
         return map(self.clean_data, option_tags)
