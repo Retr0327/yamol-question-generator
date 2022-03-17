@@ -1,1 +1,1 @@
-from .scraper import YamolScraper
+from .question_generator import YamolQuestionGenerator
