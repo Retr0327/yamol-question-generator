@@ -12,14 +12,16 @@ class MainTxt(Document):
     test_id: int
     title_name: str
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         super().__init__(
             inputenc="utf8",
             documentclass="exam",
             document_options=["12pt", "a4paper"],
         )
 
-    def fill_title(self):
+    def fill_title(self) -> None:
+        """The fill_title method adds a title within a box to the document."""
+
         with self.create(Title()):
             content = (
                 "\\fbox{\\fbox{\\parbox{3.5in}{\\centering\n"
