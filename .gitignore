@@ -132,4 +132,4 @@ dmypy.json
 .config/
 *.ipynb
 .ipynb_checkpoints/
-.tex
+*.tex
