@@ -1,6 +1,6 @@
-from typing import Union, List 
+from typing import Union, List
 from dataclasses import dataclass
-from ..downloader import YamolDownloader
+from .soup_downloader import YamolDownloader
 
 
 @dataclass
