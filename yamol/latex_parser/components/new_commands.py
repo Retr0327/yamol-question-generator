@@ -26,7 +26,7 @@ def show_all_answers() -> list[UnsafeCommand]:
 class OptionsNewCommands:
     """
     The OptionsNewCommands object creates a list of Unsafecommands that are related to
-    setting options' format.
+    options' format.
     """
 
     def create_options_command(self, arg: str, extra_args: list) -> UnsafeCommand:
@@ -45,6 +45,8 @@ class OptionsNewCommands:
         )
 
     def create(self) -> list[UnsafeCommand]:
+        """The create method creates the new commands."""
+
         one_line_options = self.create_options_command(
             r"\fourch",
             [
@@ -84,9 +86,25 @@ class OptionsNewCommands:
 
 
 class AnswerCommand:
+    """
+    The AnswerCommand object creates a list of Unsafecommands that are related to
+    answers' format.
+    """
+
     def create_answer_command(
         self, option_type: str, extra_args: Union[str, UnsafeCommand]
-    ):
+    ) -> UnsafeCommand:
+        """The create_answer_command method creates the answer command based on `option_type`
+           and `extra_args`.
+
+        Args:
+            option_type (str): the type of options (e.g. A, B, C and D)
+            extra_args (str or UnsafeCommand): the extra argument
+
+        Returns:
+            a UnsafeCommand object
+        """
+
         option_type = option_type.upper()
         equal = fr"\equal{{#5}}{{{option_type}}}"
         option_type_factory = {"A": 1, "B": 2, "C": 3, "D": 4}
@@ -100,7 +118,9 @@ class AnswerCommand:
             ],
         )
 
-    def create(self):
+    def create(self) -> UnsafeCommand:
+        """The create method creates the new commands."""
+
         option_d = self.create_answer_command(
             "d",
             r"\begin{answer}\textbf{\thequestion. (#5)~Invalid answer choice.}\end{answer}",
@@ -129,7 +149,15 @@ class OptionIndentationCommand:
         )
 
     def create_tab_width(self, value: dict) -> list[UnsafeCommand]:
-        """The create_tab_width method creates new commands that set the new width of options' indentation"""
+        """The create_tab_width method creates new commands that set the new width of
+           options' indentation.
+
+        Args:
+            value (dict): the value of tab_info in `self.create`.
+
+        Returns:
+            a list of UnsafeCommand objects
+        """
 
         command_name = value["command_name"]
         width = value["width"]
