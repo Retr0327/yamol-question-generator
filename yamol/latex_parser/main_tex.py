@@ -1,6 +1,6 @@
 from pylatex import Document
 from dataclasses import dataclass
-from .components import Title, LatexPackages
+from .components import LatexPackages
 
 
 @dataclass
