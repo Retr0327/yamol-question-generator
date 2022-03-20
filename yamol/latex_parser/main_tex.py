@@ -1,7 +1,7 @@
-from pylatex import Document
 from dataclasses import dataclass
 from pylatex.position import Center
 from .components import LatexPackages
+from pylatex import Document, UnsafeCommand
 
 
 @dataclass
@@ -24,13 +24,13 @@ class MainTxt(Document):
         """The fill_title method adds a title within a box to the document."""
 
         with self.create(Center()):
-            content = (
-                "\\fbox{\\fbox{\\parbox{3.5in}{\\centering\n"
-                "\\vspace{5pt}\\Large\n"
-                "\\textbf{"
-                + f"{self.title_name}"
-                + "}\\vspace"
-                + "{5pt}}}}\\vspace\{10pt}"
+            parbox_command = UnsafeCommand(
+                "parbox",
+                "3.5in",
+                extra_arguments=[
+                    r"\centering\vspace{5pt}\Large \textbf{教育原理與制度}\vspace{5pt}"
+                ],
             )
 
-            self.append(content)
+            fbox_command = UnsafeCommand("fbox", parbox_command)
+            self.append(UnsafeCommand("fbox", fbox_command))
