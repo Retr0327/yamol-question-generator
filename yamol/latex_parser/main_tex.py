@@ -28,7 +28,9 @@ class MainTxt(Document):
                 "parbox",
                 "3.5in",
                 extra_arguments=[
-                    r"\centering\vspace{5pt}\Large \textbf{教育原理與制度}\vspace{5pt}"
+                    r"\centering\vspace{5pt}\Large \textbf{"
+                    + self.title_name
+                    + r"}\vspace{5pt}"
                 ],
             )
 
