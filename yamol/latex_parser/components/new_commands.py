@@ -27,8 +27,8 @@ class OptionsNewCommands:
     setting options' format.
     """
 
-    def create_commands(self, arg: str, extra_args: list) -> UnsafeCommand:
-        """The create_commands method creates an unsafecommand.
+    def create_options_command(self, arg: str, extra_args: list) -> UnsafeCommand:
+        """The create_options_command method creates an unsafecommand.
 
         Args:
             arg (str): the argument of an UnsafeCommand.
@@ -43,7 +43,7 @@ class OptionsNewCommands:
         )
 
     def create(self) -> list[UnsafeCommand]:
-        one_line_options = self.create_commands(
+        one_line_options = self.create_options_command(
             r"\fourch",
             [
                 r"\par"
@@ -54,7 +54,7 @@ class OptionsNewCommands:
             ],
         )
 
-        two_lines_options = self.create_commands(
+        two_lines_options = self.create_options_command(
             r"\twoch",
             [
                 r"\par"
@@ -69,7 +69,7 @@ class OptionsNewCommands:
             ],
         )
 
-        four_lines_options = self.create_commands(
+        four_lines_options = self.create_options_command(
             r"\onech",
             [
                 r"\par"
