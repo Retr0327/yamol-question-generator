@@ -1,5 +1,6 @@
 from pylatex import Document
 from dataclasses import dataclass
+from pylatex.position import Center
 from .components import LatexPackages
 
 
@@ -22,7 +23,7 @@ class MainTxt(Document):
     def fill_title(self) -> None:
         """The fill_title method adds a title within a box to the document."""
 
-        with self.create(Title()):
+        with self.create(Center()):
             content = (
                 "\\fbox{\\fbox{\\parbox{3.5in}{\\centering\n"
                 "\\vspace{5pt}\\Large\n"
