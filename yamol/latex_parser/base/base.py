@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from abc import ABC, abstractmethod
 
 
 class LatexPackages(Enum):
@@ -28,3 +29,14 @@ class LatexPackages(Enum):
         )
         keys = map(lambda item: item.name.lower() if item.name != "CJK" else "CJK", cls)
         return list(zip(keys, values))
+
+
+class CommandCreater(ABC):
+    """
+    The CommandCreater objects creates custom latex commands.
+    """
+
+    @abstractmethod
+    def create(self):
+        """The create method creates the commands."""
+        pass
