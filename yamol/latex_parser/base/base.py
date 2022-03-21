@@ -1,7 +1,9 @@
 from typing import Union
 from enum import Enum, auto
-from pylatex import UnsafeCommand
 from abc import ABC, abstractmethod
+from pylatex import UnsafeCommand
+from pylatex.package import Package
+from pylatex.base_classes import Environment
 
 
 class LatexPackages(Enum):
@@ -42,3 +44,11 @@ class CommandCreater(ABC):
     def create(self) -> Union[list[UnsafeCommand], UnsafeCommand]:
         """The create method creates the commands."""
         pass
+
+
+class QuestionEnvironment(Environment):
+    """A class to wrap LaTeX's question environment."""
+
+    packages = [Package("question")]
+    escape = False
+    content_separator = "\n"

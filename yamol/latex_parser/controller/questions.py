@@ -1,5 +1,6 @@
 from pylatex.package import Package
 from pylatex.base_classes import Environment
+from ...question import YamolQuestionGenerator
 
 
 class Question(Environment):
