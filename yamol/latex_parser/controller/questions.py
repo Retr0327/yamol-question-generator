@@ -1,5 +1,4 @@
 from functools import reduce
-from pylatex import UnsafeCommand
 from ...question import YamolQuestionGenerator
 
 
@@ -22,3 +21,9 @@ def create_latex_option_format(option_data: dict) -> str:
     return (
         f"\\question {question} \n\\choice{{{option_string}}}{{a}}\\vspace{{10pt}}\n\n"
     )
+
+
+def create_option(test_id: int):
+    data = YamolQuestionGenerator(test_id).generate()
+    options = tuple(map(create_latex_option_format, data))
+    return " ".join(map(str, options))
