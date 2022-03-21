@@ -13,7 +13,7 @@ class ChoicCommand(CommandCreater):
         return fr"\settowidth\widthchb{{{option_type}M.#{option_type_factory[option_type]}}}"
 
     def set_each_option(self, number: str):
-        return fr"{number}{{#1}}{{#2}}{{#3}}{{#4}}{{#5}}"
+        return fr"\{number}{{#1}}{{#2}}{{#3}}{{#4}}{{#5}}"
 
     def create(self):
         extra_arguments = fr"""
