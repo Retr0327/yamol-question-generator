@@ -1,6 +1,6 @@
 from pylatex import Document
 from dataclasses import dataclass
-from .controller import create_packages, create_title
+from .controller import create_packages, create_title, create_new_commands
 
 GEOMETRY_OPTIONS = {
     "left": "1.91cm",
@@ -29,5 +29,6 @@ class MainTex(Document):
 
     def write(self):
         create_packages(self)
+        create_new_commands(self)
         create_title(self, self.title_name)
         return self.generate_tex()
