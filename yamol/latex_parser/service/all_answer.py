@@ -8,7 +8,7 @@ def show_all_answers() -> list[UnsafeCommand]:
     set_box = UnsafeCommand(r"setbox\allanswers=\vbox{}")
     new_environment = UnsafeCommand(
         "newenvironment",
-        r"\showallanswers",
+        "answer",
         extra_arguments=[
             r"\global\setbox\allanswers=\vbox\bgroup\unvbox\allanswers",
             r" \bigbreak\egroup",
