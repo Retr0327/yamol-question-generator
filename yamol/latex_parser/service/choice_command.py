@@ -36,10 +36,10 @@ class ChoicCommand(CommandCreater):
         \ifdim\widthch>\halftabwidth
             {self.set_each_option('onech')}
         \else\ifdim\widthch<\halftabwidth
-            {self.set_each_option('twoch')}
         \ifdim\widthch>\fourthtabwidth
-            {self.set_each_option('fourch')}
+            {self.set_each_option('twoch')}
         \else
+            {self.set_each_option('fourch')}
 
         \fi\fi\fi        
         """
