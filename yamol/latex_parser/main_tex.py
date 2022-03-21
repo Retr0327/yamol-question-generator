@@ -2,6 +2,7 @@ from .controller import (
     create_packages,
     create_title,
     create_new_commands,
+    create_options,
 )
 from .base import Question
 from pylatex import Document
@@ -36,9 +37,9 @@ class MainTex(Document):
         create_packages(self)
         create_new_commands(self)
         create_title(self, self.title_name)
-        # create_options(self, self.test_id)
+
         with self.create(Question()):
-            content = "ss"
+            content = create_options(self.test_id)
             self.append(content)
 
         return self.generate_tex()
