@@ -1,11 +1,17 @@
+from pylatex import Document
 from dataclasses import dataclass
-from pylatex.position import Center
-from .components import LatexPackages
-from pylatex import Document, UnsafeCommand
+from .controller import create_packages, create_title
+
+GEOMETRY_OPTIONS = {
+    "left": "1.91cm",
+    "right": "1.91cm",
+    "top": "2.54cm",
+    "bottom": "2.54cm",
+}
 
 
 @dataclass
-class MainTxt(Document):
+class MainTex(Document):
     """
     The MainTxt object contains a full Latex document.
     """
@@ -18,21 +24,10 @@ class MainTxt(Document):
             inputenc="utf8",
             documentclass="exam",
             document_options=["12pt", "a4paper"],
+            geometry_options=GEOMETRY_OPTIONS,
         )
 
-    def fill_title(self) -> None:
-        """The fill_title method adds a title within a box to the document."""
-
-        with self.create(Center()):
-            parbox_command = UnsafeCommand(
-                "parbox",
-                "3.5in",
-                extra_arguments=[
-                    r"\centering\vspace{5pt}\Large \textbf{"
-                    + self.title_name
-                    + r"}\vspace{5pt}"
-                ],
-            )
-
-            fbox_command = UnsafeCommand("fbox", parbox_command)
-            self.append(UnsafeCommand("fbox", fbox_command))
+    def write(self):
+        create_packages(self)
+        create_title(self, self.title_name)
+        return self.generate_tex()
