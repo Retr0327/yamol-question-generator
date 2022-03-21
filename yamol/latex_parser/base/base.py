@@ -1,4 +1,6 @@
+from typing import Union
 from enum import Enum, auto
+from pylatex import UnsafeCommand
 from abc import ABC, abstractmethod
 
 
@@ -37,6 +39,6 @@ class CommandCreater(ABC):
     """
 
     @abstractmethod
-    def create(self):
+    def create(self) -> Union[list[UnsafeCommand], UnsafeCommand]:
         """The create method creates the commands."""
         pass
