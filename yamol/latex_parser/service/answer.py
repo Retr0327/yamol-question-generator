@@ -1,8 +1,9 @@
 from typing import Union
+from ..base import CommandCreater
 from pylatex import UnsafeCommand
 
 
-class AnswerCommand:
+class AnswerCommand(CommandCreater):
     """
     The AnswerCommand object creates a list of Unsafecommands that are related to
     answers' format.
