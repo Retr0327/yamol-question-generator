@@ -61,4 +61,6 @@ class NewOptionsCommands(CommandCreater):
             ],
         )
 
-        return [one_line_options, two_lines_options, four_lines_options]
+        indent_width = UnsafeCommand(r"setlength\parindent{0pt}")
+
+        return [indent_width, one_line_options, two_lines_options, four_lines_options]
