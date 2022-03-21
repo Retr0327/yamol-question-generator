@@ -1,7 +1,8 @@
 from pylatex import UnsafeCommand
+from ..base import CommandCreater
 
 
-class NewOptionsCommands:
+class NewOptionsCommands(CommandCreater):
     """
     The NewOptionsCommands object creates a list of Unsafecommands that are related to
     options' format.
