@@ -8,6 +8,7 @@ from ..service import (
 
 
 def create_new_commands(self):
-    options = []
-    options = options + show_all_answers()
+    choice_command = ChoicCommand().create()
+    options = [choice_command]
+    options = show_all_answers() + options
     return self.preamble.extend(options)
