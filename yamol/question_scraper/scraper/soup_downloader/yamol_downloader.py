@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from typing import Union, List
 
 
 class YamolDownloader:
@@ -9,13 +8,17 @@ class YamolDownloader:
     def __init__(self, test_id: int) -> None:
         self.url = f"https://yamol.tw/exam.php?id={test_id}"
 
-    def download(self) -> Union[str, List[str]]:
+    def download(self) -> BeautifulSoup:
         res = requests.get(self.url)
-        soup = BeautifulSoup(res.text, "lxml")
-        question_tag = soup.find_all("div", class_="col-lg-12 reponse-card")
-        has_content = len(question_tag)
+        return BeautifulSoup(res.text, "lxml")
 
-        if not has_content:
-            return "no content"
+    # def download(self) -> Union[str, List[str]]:
+    #     res = requests.get(self.url)
+    #     soup = BeautifulSoup(res.text, "lxml")
+    #     question_tag = soup.find_all("div", class_="col-lg-12 reponse-card")
+    #     has_content = len(question_tag)
 
-        return question_tag
+    #     if not has_content:
+    #         return "no content"
+
+    #     return question_tag
