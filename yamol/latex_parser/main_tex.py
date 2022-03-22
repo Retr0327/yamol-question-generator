@@ -34,12 +34,16 @@ class MainTex(Document):
             geometry_options=GEOMETRY_OPTIONS,
         )
 
-    def create_questions(self):
+    def create_questions(self) -> None:
+        """The create_questions method creates questions under the LaTex question environment."""
+
         with self.create(QuestionEnvironment()):
             content = create_options(self.test_id)
             self.append(content)
 
-    def write(self):
+    def write(self) -> None:
+        """The write method writes the content of a document"""
+
         create_packages(self)
         create_new_commands(self)
 
