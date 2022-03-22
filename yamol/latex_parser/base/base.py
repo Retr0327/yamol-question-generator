@@ -50,7 +50,6 @@ class QuestionEnvironment(Environment):
     """The Question object wraps LaTex's question environment."""
 
     _latex_name = "questions"
-    packages = [Package("questions")]
     escape = False
     content_separator = "\n"
 
@@ -59,6 +58,5 @@ class CJKEnvironment(Environment):
     """The CJK object wraps LaTex's CJK environment."""
 
     _latex_name = "CJK"
-    packages = [Package("CJK")]
     escape = False
     content_separator = "\n"
