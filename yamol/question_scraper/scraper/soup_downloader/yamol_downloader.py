@@ -6,12 +6,8 @@ from typing import Union, List
 class YamolDownloader:
     """The YamolDownloader object downloads the option tags from the Yamol based on a given id"""
 
-    def __init__(self, id: int) -> None:
-        self.id = id
-
-    @property
-    def url(self) -> str:
-        return f"https://yamol.tw/exam.php?id={self.id}"
+    def __init__(self, test_id: int) -> None:
+        self.url = f"https://yamol.tw/exam.php?id={test_id}"
 
     def download(self) -> Union[str, List[str]]:
         res = requests.get(self.url)
