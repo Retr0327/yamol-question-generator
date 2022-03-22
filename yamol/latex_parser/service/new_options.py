@@ -56,7 +56,7 @@ class NewOptionsCommands(CommandCreater):
             r"\onech",
             [
                 r"\par"
-                r"(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4"
+                r"(A)~#1 \par (B)~#2 \par (C)~#3 \par (D)~#4"
                 r"\getanswer{#1}{#2}{#3}{#4}{#5}"
             ],
         )
