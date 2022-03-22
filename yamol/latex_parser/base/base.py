@@ -47,7 +47,9 @@ class CommandCreater(ABC):
 
 
 class QuestionEnvironment(Environment):
-    """The Question object wraps LaTex's question environment."""
+    """
+    The Question object wraps LaTex's question environment.
+    """
 
     _latex_name = "questions"
     escape = False
@@ -55,7 +57,9 @@ class QuestionEnvironment(Environment):
 
 
 class CJKEnvironment(Environment):
-    """The CJK object wraps LaTex's CJK environment."""
+    """
+    The CJK object wraps LaTex's CJK environment.
+    """
 
     _latex_name = "CJK"
     escape = False
