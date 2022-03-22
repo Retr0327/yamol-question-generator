@@ -4,8 +4,8 @@ from .controller import (
     create_new_commands,
     create_options,
 )
-from .base import Question
 from pylatex import Document
+from .base import Question, CJK
 from dataclasses import dataclass
 
 GEOMETRY_OPTIONS = {
