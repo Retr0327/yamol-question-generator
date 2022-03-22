@@ -25,6 +25,7 @@ class MainTex(Document):
 
     test_id: int
     title_name: str
+    file_path: str
 
     def __post_init__(self) -> None:
         super().__init__(
@@ -51,4 +52,4 @@ class MainTex(Document):
             create_title(self, self.title_name)
             self.create_questions()
 
-        return self.generate_tex()
+        return self.generate_tex(filepath=self.file_path)
