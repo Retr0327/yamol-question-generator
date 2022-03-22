@@ -13,7 +13,9 @@ def create_latex_option_format(option_data: dict) -> str:
     """
     question = option_data["question"]
     option = option_data["option"]
-    option_string = reduce(lambda prev, current: f"{prev}" + f"}}{{{current}", option)
+    option_string = reduce(
+        lambda prev, current: prev.strip() + f"}}{{{current.strip()}", option
+    )
 
     if option == "題組題":
         return f"\\question {question}\n\n"
