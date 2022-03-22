@@ -1,5 +1,5 @@
 from functools import reduce
-from ...question import YamolQuestionGenerator
+from ...question_scraper import YamolQuestionGenerator
 
 
 def create_latex_option_format(option_data: dict) -> str:
