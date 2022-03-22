@@ -6,6 +6,7 @@ from .controller import (
 )
 from pylatex import Document
 from dataclasses import dataclass
+from pylatex.base_classes import Arguments
 from .base import QuestionEnvironment, CJKEnvironment
 
 GEOMETRY_OPTIONS = {
@@ -33,13 +34,17 @@ class MainTex(Document):
             geometry_options=GEOMETRY_OPTIONS,
         )
 
-    def write(self):
-        create_packages(self)
-        create_new_commands(self)
-        create_title(self, self.title_name)
-
+    def create_questions(self):
         with self.create(QuestionEnvironment()):
             content = create_options(self.test_id)
             self.append(content)
+
+    def write(self):
+        create_packages(self)
+        create_new_commands(self)
+
+        with self.create(CJKEnvironment(arguments=Arguments("UTF8", "bsmi"))) as env:
+            create_title(self, self.title_name)
+            self.create_questions()
 
         return self.generate_tex()
