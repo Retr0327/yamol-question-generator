@@ -3,7 +3,7 @@ from ...question_scraper import YamolQuestionGenerator
 
 
 def create_latex_option_format(option_data: dict) -> str:
-    """The create_latex_option_format function creates the format of latex options.
+    """The create_latex_option_format function creates the format of LaTex options.
 
     Args:
         option_data (dict): the data downloaded by `YamolQuestionGenerator`
@@ -25,7 +25,16 @@ def create_latex_option_format(option_data: dict) -> str:
     )
 
 
-def create_options(test_id: int):
+def create_options(test_id: int) -> str:
+    """The create_options function uses the data downloaded from Yamol website to create
+       LaTex's question
+
+    Args:
+        test_id (int): the id that represents a test
+
+    Returns:
+        a str
+    """
     data = YamolQuestionGenerator(test_id).generate()
     options = tuple(map(create_latex_option_format, data))
     return " ".join(map(str, options))
