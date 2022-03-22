@@ -1,1 +1,1 @@
-from .base import LatexPackages, CommandCreater, Question, CJK
+from .base import LatexPackages, CommandCreater, QuestionEnvironment, CJKEnvironment

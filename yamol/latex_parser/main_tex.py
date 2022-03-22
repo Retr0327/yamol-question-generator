@@ -5,8 +5,8 @@ from .controller import (
     create_options,
 )
 from pylatex import Document
-from .base import Question, CJK
 from dataclasses import dataclass
+from .base import QuestionEnvironment, CJKEnvironment
 
 GEOMETRY_OPTIONS = {
     "left": "1.91cm",
@@ -38,7 +38,7 @@ class MainTex(Document):
         create_new_commands(self)
         create_title(self, self.title_name)
 
-        with self.create(Question()):
+        with self.create(QuestionEnvironment()):
             content = create_options(self.test_id)
             self.append(content)
 
