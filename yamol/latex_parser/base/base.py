@@ -12,6 +12,7 @@ class LatexPackages(Enum):
     Indentfirst = auto()
     Graphicx = auto()
     Mathptm = auto()
+    Array = auto()
     CJK = "encapsulated"
     Babel = "english"
     Ifthen = auto()
