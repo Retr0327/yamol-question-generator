@@ -4,7 +4,7 @@ from .soup_downloader import YamolDownloader
 
 
 @dataclass
-class YamolScraper:
+class YamolQuestionScraper:
     """The YamolScraper extracts the option content from html tags downloaded by YamolDownloader"""
 
     test_id: int

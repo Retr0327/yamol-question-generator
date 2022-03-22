@@ -1,8 +1,8 @@
 import re
 import pydantic
 from typing import List, Union
-from .scraper import YamolScraper
 from dataclasses import dataclass
+from .scraper import YamolQuestionScraper
 
 
 class YamolQuestionValidator(pydantic.BaseModel):
@@ -42,8 +42,8 @@ class YamolQuestionGenerator:
     id: int
 
     def download_data(self) -> map:
-        """The download_data method downloads the data from YamolScraper."""
-        return YamolScraper(self.id).extract_data()
+        """The download_data method downloads the data from YamolQuestionScraper."""
+        return YamolQuestionScraper(self.id).extract_data()
 
     def format_question(self, value: str) -> str:
         """The format_question formats the question value"""
