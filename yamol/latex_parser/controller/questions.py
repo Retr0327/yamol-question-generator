@@ -19,7 +19,7 @@ def create_latex_option_format(option_data: dict) -> str:
         return f"\\question {question}\n\n"
 
     return (
-        f"\\question {question} \n\\choice{{{option_string}}}{{a}}\\vspace{{10pt}}\n\n"
+        f"\\question {question}\n\\choice{{{option_string}}}{{a}}\\vspace{{10pt}}\n\n"
     )
 
 
