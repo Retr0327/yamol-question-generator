@@ -47,7 +47,7 @@ class CommandCreater(ABC):
 
 
 class Question(Environment):
-    """A class to wrap LaTeX's question environment."""
+    """The Question object wraps LaTex's question environment."""
 
     packages = [Package("question")]
     escape = False
