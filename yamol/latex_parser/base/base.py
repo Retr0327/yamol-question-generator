@@ -52,3 +52,11 @@ class Question(Environment):
     packages = [Package("question")]
     escape = False
     content_separator = "\n"
+
+
+class CJK(Environment):
+    """The CJK object wraps LaTex's CJK environment."""
+
+    packages = [Package("question", option=["UTF8", "bsmi"])]
+    escape = False
+    content_separator = "\n"
