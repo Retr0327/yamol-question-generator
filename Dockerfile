@@ -4,6 +4,6 @@ ADD ./requirements.txt /app/
 
 WORKDIR /app
 
-COPY ./package*.json ./
+COPY ./yamol ./
 
 RUN apt-get update && pip install -r requirements.txt
