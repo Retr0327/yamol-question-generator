@@ -1,11 +1,18 @@
 FROM python:3.9.10
 
-ADD ./requirements.txt /app/
+RUN useradd myuser
 
-WORKDIR /app
+USER myuser
 
-COPY ./ ./
+WORKDIR /home/myuser
 
-# RUN apt-get update && /usr/local/bin/python -m pip install --upgrade pip && pip install -r requirements.txt
+# COPY --chown=myuser:myuser requirements.txt requirements.txt
 
-# RUN ./deploy.sh
+# RUN pip install --user -r requirements.txt
+
+ENV PATH="/home/myuser/.local/bin:${PATH}"
+
+COPY --chown=myuser:myuser ./ ./
+
+
+RUN pip install --user -r requirements.txt
