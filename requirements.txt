@@ -1,4 +1,4 @@
 requests==2.16.0
-bs4==4.10.0
+beautifulsoup4==4.10.0
 pydantic==1.9.0
 pylatex==1.4.1
