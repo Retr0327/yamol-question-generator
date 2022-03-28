@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  yamol: 
+    build: .
+    ports:
+      - 80
+    command: sh -c "bash ./deploy.sh"
+    volumes:
+      - .:/app
